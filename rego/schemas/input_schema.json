@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ArrayBuffer": {
+            "properties": {
+                "__@toStringTag@23": {
+                    "type": "string"
+                },
+                "byteLength": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "EnvoyAttributeContext": {
+            "properties": {
+                "context_extensions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "destination": {
+                    "$ref": "#/definitions/EnvoyAttributeContextPeer"
+                },
+                "metadata_context": {
+                    "$ref": "#/definitions/Object"
+                },
+                "request": {
+                    "$ref": "#/definitions/EnvoyAttributeContextRequest"
+                },
+                "source": {
+                    "$ref": "#/definitions/EnvoyAttributeContextPeer"
+                }
+            },
+            "type": "object"
+        },
+        "EnvoyAttributeContextHttpRequest": {
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "fragment": {
+                    "type": "string"
+                },
+                "headers": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "query": {
+                    "type": "string"
+                },
+                "raw_body": {
+                    "$ref": "#/definitions/ArrayBuffer"
+                },
+                "scheme": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "EnvoyAttributeContextPeer": {
+            "properties": {
+                "address": {
+                    "$ref": "#/definitions/Object"
+                },
+                "certificate": {
+                    "type": "string"
+                },
+                "labels": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "principal": {
+                    "type": "string"
+                },
+                "service": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EnvoyAttributeContextRequest": {
+            "properties": {
+                "http": {
+                    "$ref": "#/definitions/EnvoyAttributeContextHttpRequest"
+                },
+                "time": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Function": {
+            "properties": {
+                "arguments": {},
+                "caller": {
+                    "$ref": "#/definitions/Function"
+                },
+                "length": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "prototype": {}
+            },
+            "type": "object"
+        },
+        "Object": {
+            "properties": {
+                "constructor": {
+                    "$ref": "#/definitions/Function"
+                }
+            },
+            "type": "object"
+        },
+        "Role": {
+            "enum": [
+                "CEO",
+                "ContractAdmin",
+                "Employee",
+                "External"
+            ],
+            "type": "string"
+        },
+        "T": {
+            "type": "object"
+        },
+        "UserModel": {
+            "properties": {
+                "department": {
+                    "enum": [
+                        "IT",
+                        "Sales"
+                    ],
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "roles": {
+                    "items": {
+                        "$ref": "#/definitions/Role"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "This model is simplified and (probably) not suitable for sharing\nbetween browser frontend and the PEP(s) enforcing the rules in the backend.\nA more realistic model is that a Bearer Token is fed as input rather than our UserModel.\nThe team behind OPA provides a good starting point for such model / Rego code:\nhttps://play.openpolicyagent.org/p/CJIq9dnzfC",
+    "properties": {
+        "action": {
+            "enum": [
+                "Create",
+                "Delete",
+                "Read",
+                "Update"
+            ],
+            "type": "string"
+        },
+        "attributes": {
+            "$ref": "#/definitions/EnvoyAttributeContext"
+        },
+        "parsed_body": {
+            "additionalProperties": {
+                "type": "string"
+            },
+            "type": "object"
+        },
+        "parsed_path": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "parsed_query": {
+            "additionalProperties": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "type": "object"
+        },
+        "resource": {
+            "properties": {
+                "after": {
+                    "$ref": "#/definitions/T"
+                },
+                "before": {
+                    "$ref": "#/definitions/T"
+                }
+            },
+            "type": "object"
+        },
+        "subject": {
+            "$ref": "#/definitions/UserModel"
+        }
+    },
+    "type": "object"
+}
+

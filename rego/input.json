@@ -1,0 +1,26 @@
+{
+  "subject": {
+      "id": "1",
+      "name": "Devine Boss",
+      "roles": [
+          "CEO",
+          "ContractAdmin"
+      ]
+  },
+  "attributes": {
+      "request": {
+          "http": {
+              "host": "localhost:4200",
+              "method": "GET",
+              "headers": {},
+              "path": "/wrong/contracts",
+              "protocol": "http:"
+          }
+      }
+  },
+  "parsed_path": [
+      "wrong",
+      "contracts"
+  ],
+  "parsed_query": {}
+}

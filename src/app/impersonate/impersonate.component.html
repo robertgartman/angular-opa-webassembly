@@ -1,0 +1,13 @@
+<h2>Impersonate a user</h2>
+
+<form [formGroup]="userForm" class="userForm">
+
+  <mat-button-toggle-group name="User" aria-label="User" formControlName="user" [vertical]="true">
+    <mat-button-toggle *ngFor="let user of userDirectory " [value]="user">{{user.name}}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <span *ngIf="impersonatedUser$ | async as selectedUser">
+    Selected user's attributes
+    <pre>{{ selectedUser | json }}</pre>
+  </span>
+</form>

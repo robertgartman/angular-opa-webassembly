@@ -1,0 +1,10 @@
+<div *ngFor="let contract of contracts$ | async" class="contract" (click)="contractDetails(contract)">
+
+  <div class="title">Title: {{contract.title}}</div>
+  <div class="author">Author id: {{contract.author}}</div>
+  <div class="state">{{contract.lifecycleState}}</div>
+  <button mat-icon-button class="delete" (click)="delete(contract.id)" *ngIf="canDelete(contract) | async">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+<button mat-raised-button [disabled]="!(allowCreate$ | async)" color="primary" (click)="newContract()">New</button>

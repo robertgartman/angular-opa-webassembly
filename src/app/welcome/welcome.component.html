@@ -1,0 +1,36 @@
+<p>
+  This is an example of enforcing policies in the browser using OPA.
+  The application mimics a basic corporate Contract Management solution.
+</p>
+
+
+<p>This is a Proof-of-Concept demonstraing how <b>Open Policy Agent</b> (OPA) can be used
+alongside a web app, taking care of policy decisions.
+A rationale doing this is reuse of Policy-as-Code across frontend, network and backend.
+</p>
+<p>The context for this PoC is a basic Contract Managment system.</p>
+
+<span>Tech stack</span>
+<ul>
+  <li>Angular 15</li>
+  <li>Open Policy Agent, code developed against v0.48</li>
+  <li>OPA running in WebAssmebly</li>
+</ul>
+
+<p>
+  There is no login. Instead you pick your user below.
+  You can at any point switch user to verify
+  how the interaction with OPA works out.
+  All queries to OPA are logged in the browser console.
+  The contract data is randomized and changes with page reload.
+</p>
+<p>
+  <b>Start by selecting a user</b> and navigate the top menu.
+</p>
+The code demonstrates how OPA can
+<ul>
+  <li>validate form fields using <code>AsyncValidatorFn</code></li>
+  <li>perform access control to routes using <code>Route.canMatch</code></li>
+  <li>perform access control on outgoing http traffic using <code>HttpInterceptor</code></li>
+  <li>trim UI by showing/hiding/enabling/disabling elements</li>
+</ul>

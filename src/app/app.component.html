@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <nav class="navigation">
+    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Welcome</a>
+    <a *ngIf="canAccessContracts$ | async" routerLink="/contracts" routerLinkActive="active"
+      ariaCurrentWhenActive="page">Contracts</a>
+  </nav>
+</mat-toolbar>
+
+
+<div class="side_padding">
+  <router-outlet class="side_padding"></router-outlet>
+</div>
+
+
+<app-impersonate></app-impersonate>

@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  max-width: 600px;
+}
+
+.side_padding {
+  padding: 0 8px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+
+  a:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  a {
+    color: white;
+  }
+}

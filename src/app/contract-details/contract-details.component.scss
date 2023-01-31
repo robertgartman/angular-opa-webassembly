@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.contractForm {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: stretch;
+
+  >* {
+    padding: 8px 0px;
+  }
+
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

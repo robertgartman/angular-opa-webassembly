@@ -1,0 +1,45 @@
+{
+  "rolesHierachy": {
+      "Employee": [],
+      "External": [],
+      "ContractAdmin": [],
+      "CEO": [
+          "Employee"
+      ]
+  },
+  "inputdatamapping": {
+      "beforeResource": [
+          "resource.before"
+      ],
+      "afterResource": [
+          "resource.after"
+      ],
+      "userId": [
+          "subject.id"
+      ],
+      "userRoles": [
+          "subject.roles"
+      ],
+      "httpHost": [
+          "attributes.request.http.host"
+      ],
+      "httpMethod": [
+          "attributes.request.http.method"
+      ],
+      "httpPath": [
+          "attributes.request.http.path"
+      ],
+      "httpParsedBody": [
+          "parsed_body"
+      ],
+      "httpParsedPath": [
+          "parsed_path"
+      ],
+      "httpParsedQuery": [
+          "parsed_query"
+      ],
+      "action": [
+          "action"
+      ]
+  }
+}

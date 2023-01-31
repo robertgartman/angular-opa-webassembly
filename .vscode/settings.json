@@ -1,0 +1,7 @@
+{
+  "opa.roots": ["${workspaceFolder}/rego"],
+  "opa.schema": "${workspaceFolder}/rego/schemas",
+  "opa.strictMode": true,
+  "opa.checkOnSave": true,
+  "editor.formatOnSave": true
+}

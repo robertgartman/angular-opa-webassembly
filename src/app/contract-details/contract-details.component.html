@@ -1,0 +1,72 @@
+<h2>Contract details</h2>
+<ng-container *ngIf="contract$ | async as contract">
+
+  <ng-container *ngIf="permissions$| async as permissions">
+
+    <form [formGroup]="contractForm" *ngIf="permissions.update" class="contractForm">
+      <div>
+        <p>
+          Assign contract state
+        </p>
+        <mat-button-toggle-group name="Change Contract state" aria-label="Change Contract state"
+          (change)="changedState($event)" [value]="f['state'].value">
+          <mat-button-toggle *ngFor="let state of availableStates$ | async | keyvalue : zeroSort" [value]="state.key"
+            [disabled]="!state.value">{{state.key}}</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Contract title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Agreement</mat-label>
+        <textarea matInput rows="5" placeholder="Formulate the agreement..." formControlName="body"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Signature</mat-label>
+        <input matInput placeholder="Signer's full name" formControlName="signature">
+      </mat-form-field>
+
+      <p>
+        Author id: {{contract.author}}
+      </p>
+    </form>
+
+    <ng-container *ngIf="!permissions.update && permissions.read">
+      <p>
+        title: {{contract.title}}
+      </p>
+
+      <p>
+        state: {{contract.lifecycleState}}
+      </p>
+
+      <p>
+        {{contract.body}}
+      </p>
+
+      <p>
+        signature: {{contract.signature}}
+      </p>
+
+      <p>
+        Author id: {{contract.author}}
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="!(permissions.update || permissions.read)">
+      <p>
+        You're not authorized to access this contract
+      </p>
+    </ng-container>
+
+    <div class="buttons">
+      <button mat-raised-button [disabled]="!permissions.del" (click)="deleteContract()">Delete</button>
+      <button mat-raised-button [disabled]="!permissions.update" (click)="saveContract()">Save</button>
+    </div>
+
+  </ng-container>
+</ng-container>

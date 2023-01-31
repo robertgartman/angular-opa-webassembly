@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.contract {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-areas: "title state delete" "author state delete";
+  grid-template-columns: 6fr 1fr 40px;
+  margin: 8px 0;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.title {
+  grid-area: title;
+}
+
+.author {
+  grid-area: author;
+}
+
+.state {
+  grid-area: state;
+  margin: auto 0;
+}
+
+.delete {
+  grid-area: delete;
+  margin: auto;
+}
