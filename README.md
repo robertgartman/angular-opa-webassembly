@@ -1,6 +1,15 @@
 # Proof of Concept - enforcing OPA policies in the browser
 
-## The concepts are demonstrated as a Contract Management solution
+This repo was created togheter with a series of articles published [here](https://medium.com/@robertgartman/enforce-policies-in-the-browser-with-open-policy-agent-22d8e32fbfb6).
+
+Code is demonstrating how Open Policy Agent (aka OPA) can run alongside the app and serve all the policy-related decisions.
+
+**The tech stack**
+- Angular 15
+- Open Policy Agent, code developed against v0.48</li>
+- OPA running in WebAssembly
+
+**The concepts are demonstrated as a Contract Management solution**
 
 The Angular logic can be found under `src/app`. The rego files are located under `rego` folder. The `rego/README.md` explains how to update the WebAssembly/wasm file.
 
@@ -23,9 +32,6 @@ In the mobile, navigate to `http://<webserverip>:4200/`
 
 ---
 *Below - the default Angular CLI output...*
-
-
-# AngularOpaWasm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
 
